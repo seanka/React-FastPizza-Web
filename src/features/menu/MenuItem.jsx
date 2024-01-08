@@ -4,7 +4,6 @@ import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/helpers";
 import { addItem, getCurrentQtyById } from "../cart/cartSlice";
 import DeleteItem from "../cart/DeleteItem";
-import { current } from "@reduxjs/toolkit";
 import UpdateItemQty from "../cart/UpdateItemQty";
 
 function MenuItem({ pizza }) {
