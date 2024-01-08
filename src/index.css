@@ -6,42 +6,35 @@
   .input {
     @apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
   }
+
   .loader {
-    width: 45px;
-    aspect-ratio: 0.75;
-    --c: no-repeat linear-gradient(#theme(colors.stone.800) 0 0);
+    width: 70px;
+    height: 70px;
     background:
-      var(--c) 0% 50%,
-      var(--c) 50% 50%,
-      var(--c) 100% 50%;
-    background-size: 20% 50%;
-    animation: loading 1s infinite linear;
+      radial-gradient(farthest-side, #766df4 90%, #0000) center/16px 16px,
+      radial-gradient(farthest-side, #6f6d91 90%, #0000) bottom/12px 12px;
+    background-repeat: no-repeat;
+    animation: s7 1s infinite linear;
+    position: relative;
   }
 
-  @keyframes loading {
-    20% {
-      background-position:
-        0% 0%,
-        50% 50%,
-        100% 50%;
-    }
-    40% {
-      background-position:
-        0% 100%,
-        50% 0%,
-        100% 50%;
-    }
-    60% {
-      background-position:
-        0% 50%,
-        50% 100%,
-        100% 0%;
-    }
-    80% {
-      background-position:
-        0% 50%,
-        50% 50%,
-        100% 100%;
+  .loader::before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    inset: auto 0 16px;
+    margin: auto;
+    background: #e4e4ed;
+    border-radius: 50%;
+    transform-origin: 50% calc(100% + 10px);
+    animation: inherit;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes s7 {
+    100% {
+      transform: rotate(1turn);
     }
   }
 }
