@@ -5,6 +5,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { addItem, getCurrentQtyById } from "../cart/cartSlice";
 import DeleteItem from "../cart/DeleteItem";
 import { current } from "@reduxjs/toolkit";
+import UpdateItemQty from "../cart/UpdateItemQty";
 
 function MenuItem({ pizza }) {
   const dispatch = useDispatch();
@@ -47,7 +48,12 @@ function MenuItem({ pizza }) {
             </p>
           )}
 
-          {isInCart && <DeleteItem pizzaId={id} />}
+          {isInCart && (
+            <div className="flex items-center gap-3 sm:gap-8">
+              <DeleteItem pizzaId={id} />
+              <UpdateItemQty pizzaId={id} currentQty={currentQty} />
+            </div>
+          )}
 
           {!soldOut && !isInCart && (
             <Button type="small" onClick={handleAddToCart}>
